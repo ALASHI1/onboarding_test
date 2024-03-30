@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block content %}
+
+    <div class="container mt-5">
+      <h1>Course Home</h1>
+      <hr />
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Course</th>
+            <th scope="col">Completed</th>
+            <th scope="col">Training</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Call Center Training1</td>
+            <td>{{CourseDone}}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <form method="get" action="{% url 'take_training' %}">
+                  <button
+                    {% if CourseDone %}
+                    disabled
+                    {% endif %}
+                    id="exampleModal"
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+                    Train
+                  </button>
+                </form>
+                <form method="get" action="{% url 'reset_training' %}">
+                  <button
+                    {% if not CourseDone %}
+                    disabled
+                    {% endif %}
+                    class="btn btn-primary"
+                    type="submit"
+                  >
+                    Re-Train
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="card text-center">
+            <div class="card-header">User Score</div>
+            <div class="card-body">
+              <h5 class="card-title">Your Score</h5>
+              <p class="card-text" id="userScore">{{TrainingScore}}</p>
+            </div>
+            <div class="card-footer text-muted">Updated just now</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="{% url 'leaderboard' %}" class="btn btn-success fixed-bottom-right"
+      >Go to Leaderboard</a
+    >
+{% endblock %}
